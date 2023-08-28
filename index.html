@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECE-B</title>
+    <style>
+        .main1{
+            background-color: aqua;
+           
+            width: auto;
+        
+           
+
+        }
+        .main1 > h3{
+            text-align: center;
+            font-size: 50px;
+            font-style: oblique;
+        }
+        .main1 > img{
+            width: 100%;
+            height: 130px;
+        }
+        .main1 >h4{
+            text-align: center;
+            font-size: 30px;
+        }
+        .main2{
+           border: 5px solid;
+           padding: 20px;
+            background-color: azure;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            width: 300px;
+            margin-left: 40%;
+          
+        }
+        .img1{
+            height: 150px;
+            margin-top: 5px;
+            text-align: center;
+        }
+        @media (min-width:100px) and (max-width: 700px) {
+            .main1{
+            background-color: aqua;
+            width: auto;
+            }
+            .main1 > h3{
+            text-align: center;
+            font-size: 25px;
+            font-style: oblique;
+            }
+            .main1 > img{
+            width: 100%;
+            height:80px;
+            }
+            .main1 >h4{
+            text-align: center;
+            font-size: 17px;
+            }
+            .main2{
+           border: 2px solid;
+           padding: 20px;
+            background-color: azure;
+            width: 300px;
+            padding:0;
+            margin: 0;
+            margin-left: 20px;
+            padding-top: 10px;
+            padding-left: 10px;
+            
+            
+        }
+        .img1{
+            height: 100px;
+            text-align: center;
+        }
+            
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="main1">
+        <img src="./logo.png"/>
+        <h3>Department Of Electronics And Communication Engineering</h3>
+        <h4><u> Student Attendence</u></h4>
+        <div class="main2">
+            <form name="submit-to-google-sheet">
+            <img class="img1" src="./kusuma.jfif"/>
+            <p>
+                Student Name: Nellore Kusuma<br>
+                Roll No    :21G01A0498<br>
+                Branch     :ECE -B       
+            </p>
+           
+                <label><h4>Attendence</h4></label>
+                <input type="radio" name="21G01A0498" value="1" required><label >Present👍</label><br>
+                <input type="radio" name="21G01A0498" value="0"><label>Absent</label><br>
+               
+                <hr/>
+                <img class="img1" src="./navya.jfif"/>
+                <p>
+                    Student Name: Motati Navya Teja<br>
+                    Roll No    :21G01A0491<br>
+                    Branch     :ECE -B       
+                </p>
+               
+                    <label><h4>Attendence</h4></label>
+                    <input type="radio" name="21G01A0491" value="1"  required><label>Present👍</label><br>
+                    <input type="radio" name="21G01A0491" value="0"><label>Absent</label><br>
+                   
+                    <hr/>
+                    <img class="img1" src="./indra.jfif"/>
+                    <p>
+                        Student Name: Kummithi Indrasena Reddy<br>
+                        Roll No    :21G01A0471<br>
+                        Branch     :ECE-B       
+                    </p>
+                   
+                        <label><h4>Attendence</h4></label>
+                        <input type="radio" name="21G01A0471" value="1"  required><label>Present👍</label><br>
+                        <input type="radio" name="21G01A0471" value="0"><label>Absent</label><br>
+                   
+                    <hr/>
+                        <img class="img1" src="./gnanasri.jfif"/>
+                        <p>
+                            Student Name: K.Gnanasri<br>
+                            Roll No    :21G01A0460<br>
+                            Branch     :ECE -B       
+                        </p>
+                      
+                            <label><h4>Attendence</h4></label>
+                            <input type="radio" name="21G01A0460" value="1"  required><label>Present👍</label><br>
+                            <input type="radio" name="21G01A0460" value="0"><label>Absent</label><br>
+                      
+                        <hr/>
+                        <img class="img1" src="./lokesh.jfif"/>
+                        <p>
+                                Student Name: M.Lokesh<br>
+                                Roll No    :21G01A0485<br>
+                                Branch     :ECE -B       
+                        </p>
+                     
+                                <label><h4>Attendence</h4></label>
+                                <input type="radio" name="21G01A0485" value="1"  required><label>Present👍</label><br>
+                                <input type="radio" name="21G01A0485" value="0"><label>Absent</label><br>
+
+                    
+                      
+                        <input type="submit" name="submit"><br>
+                        <span id="success"></span>
+                        </form>
+                        <script>
+                            const scriptURL = 'https://script.google.com/macros/s/AKfycbwjtF-SBpuoupcavSLVYgWxp-fe95XVUDHzUVhVxgdoby_-2KZCmOU14XibkIOKfvhwkA/exec'
+                            const form = document.forms['submit-to-google-sheet']
+                            const success=document.getElementById('success');
+                          
+                            form.addEventListener('submit', e => {
+                              e.preventDefault()
+                              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                                .then(response =>{
+                                    success.innerHTML="data successfully submitted";
+                                    setTimeout(function()
+                                    {
+                                        success.innerHTML="";
+                                    },5000)
+                                    form.reset()
+                                })
+                                .catch(error => console.error('Error!', error.message))
+                            })
+                          </script>
+                       
+        </div>
+    </div>
+</body>
+</html>
